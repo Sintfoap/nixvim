@@ -3,6 +3,7 @@
   stylua = "${pkgs.stylua}/bin/stylua";
   alejandra = "${pkgs.alejandra}/bin/alejandra";
   isort = "${pkgs.isort}/bin/isort";
+  rustfmt = "${pkgs.rustfmt}/bin/rustfmt";
 in {
   opts = {
     number = true;
@@ -12,6 +13,14 @@ in {
   globals = {
     mapleader = " ";
     maplocalleader = " ";
+  };
+
+  performance.combinePlugins = {
+    enable = true;
+    standalonePlugins = [
+      "oil.nvim"
+      "lualine.nvim"
+    ];
   };
 
   colorschemes.onedark = {
@@ -29,6 +38,7 @@ in {
         lua = ["stylua"];
         nix = ["alejandra"];
         python = ["isort" "ruff_format"];
+        rust = ["rustfmt"];
         "*" = ["trim_whitespace"];
       };
       formatters = {
@@ -39,6 +49,7 @@ in {
         stylua.command = stylua;
         alejandra.command = alejandra;
         isort.command = isort;
+        rustfmt.command = rustfmt;
       };
     };
 
@@ -57,11 +68,16 @@ in {
         gi = "implementation";
         gt = "type_definition";
       };
-      servers.pyright.enable = true;
-      servers.nil-ls.enable = true;
-      servers.jsonls.enable = true;
-      servers.lua-ls.enable = true;
-      servers.marksman.enable = true;
+      servers = {
+        pyright.enable = true;
+        nil-ls.enable = true;
+        jsonls.enable = true;
+        lua-ls.enable = true;
+        marksman.enable = true;
+        rust-analyzer.enable = true;
+        rust-analyzer.installRustc = true;
+        rust-analyzer.installCargo = true;
+      };
     };
 
     lint = {
@@ -81,7 +97,7 @@ in {
     telescope = {
       enable = true;
       keymaps = {
-        "<leader>h" = "find_flies";
+        "<leader>h" = "find_files";
         "<leader>g" = "live_grep";
         "<leader>df" = "lsp_references";
       };
@@ -147,6 +163,21 @@ in {
       ];
     };
 
+    floaterm = {
+      enable = true;
+      autoclose = 0;
+      keymaps = {
+        hide = "<leader>th";
+        kill = "<leader>td";
+        first = "<leader>ti";
+        last = "<leader>ta";
+        new = "<leader>to";
+        next = "<leader>tk";
+        prev = "<leader>tj";
+        show = "<leader>tg";
+      };
+    };
+
     gitsigns.enable = true;
 
     neogit.enable = true;
@@ -176,6 +207,8 @@ in {
     cmp_luasnip.enable = true; # snippets
 
     cmp-cmdline.enable = true; # autocomplete for cmdlinep
+
+    leap.enable = true;
   };
 
   extraPlugins = with pkgs.vimPlugins; [
@@ -185,7 +218,7 @@ in {
   keymaps = [
     {
       mode = "n";
-      key = "<leader>g";
+      key = "<leader>ig";
       action = "<cmd>Neogit<cr>";
     }
   ];
