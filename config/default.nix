@@ -72,11 +72,13 @@ in {
         pyright.enable = true;
         nil-ls.enable = true;
         jsonls.enable = true;
+        html.enable = true;
         lua-ls.enable = true;
         marksman.enable = true;
         rust-analyzer.enable = true;
         rust-analyzer.installRustc = true;
         rust-analyzer.installCargo = true;
+	tsserver.enable = true;
       };
     };
 
