@@ -78,7 +78,7 @@ in {
         rust-analyzer.enable = true;
         rust-analyzer.installRustc = true;
         rust-analyzer.installCargo = true;
-	tsserver.enable = true;
+        tsserver.enable = true;
       };
     };
 
@@ -222,6 +222,11 @@ in {
       mode = "n";
       key = "<leader>ig";
       action = "<cmd>Neogit<cr>";
+    }
+    {
+      mode = "n";
+      key = "<leader>-";
+      action = "<cmd>Oil<cr>";
     }
   ];
 }
