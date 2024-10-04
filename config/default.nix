@@ -211,6 +211,8 @@ in {
     cmp-cmdline.enable = true; # autocomplete for cmdlinep
 
     leap.enable = true;
+    
+    markdown-preview.enable = true;
   };
 
   extraPlugins = with pkgs.vimPlugins; [
