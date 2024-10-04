@@ -79,6 +79,7 @@ in {
         rust-analyzer.installRustc = true;
         rust-analyzer.installCargo = true;
         tsserver.enable = true;
+	ts-ls.enable = true;
       };
     };
 
@@ -211,8 +212,14 @@ in {
     cmp-cmdline.enable = true; # autocomplete for cmdlinep
 
     leap.enable = true;
-    
-    markdown-preview.enable = true;
+
+    markdown-preview = {
+      enable = true;
+      settings = {
+        browser = "firefox";
+	theme = "dark";
+      };
+    };
   };
 
   extraPlugins = with pkgs.vimPlugins; [
