@@ -8,6 +8,7 @@ in {
   opts = {
     number = true;
     shiftwidth = 2;
+    signcolumn = "yes";
   };
 
   globals = {
