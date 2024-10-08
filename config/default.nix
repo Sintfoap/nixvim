@@ -53,6 +53,7 @@ in {
         rustfmt.command = rustfmt;
       };
     };
+    vimtex.enable = true;
 
     lsp = {
       enable = true;
@@ -80,7 +81,8 @@ in {
         rust-analyzer.installRustc = true;
         rust-analyzer.installCargo = true;
         tsserver.enable = true;
-	ts-ls.enable = true;
+        ts-ls.enable = true;
+        ltex.enable = true;
       };
     };
 
@@ -218,7 +220,7 @@ in {
       enable = true;
       settings = {
         browser = "firefox";
-	theme = "dark";
+        theme = "dark";
       };
     };
   };
