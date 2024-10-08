@@ -53,7 +53,14 @@ in {
         rustfmt.command = rustfmt;
       };
     };
-    vimtex.enable = true;
+    vimtex = {
+      enable = true;
+      texlivePackage = pkgs.texlive.combined.scheme-full;
+      settings = {
+	compiler_method = "latexmk";
+	view_method = "zathura";
+      };
+    };
 
     lsp = {
       enable = true;
