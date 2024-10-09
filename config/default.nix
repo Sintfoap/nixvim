@@ -19,8 +19,7 @@ in {
   performance.combinePlugins = {
     enable = true;
     standalonePlugins = [
-      "oil.nvim"
-      "lualine.nvim"
+      "oil.nvim" "lualine.nvim" "leap.nvim"
     ];
   };
 
@@ -57,8 +56,8 @@ in {
       enable = true;
       texlivePackage = pkgs.texlive.combined.scheme-full;
       settings = {
-	compiler_method = "latexmk";
-	view_method = "zathura";
+        compiler_method = "latexmk";
+        view_method = "zathura";
       };
     };
 
@@ -90,6 +89,7 @@ in {
         tsserver.enable = true;
         ts-ls.enable = true;
         ltex.enable = true;
+        typst_lsp.enable = true;
       };
     };
 
@@ -232,8 +232,23 @@ in {
     };
   };
 
+  extraConfigLua = ''
+    require 'typst-preview'.update()
+  '';
+
   extraPlugins = with pkgs.vimPlugins; [
     vim-visual-multi
+    (pkgs.vimUtils.buildVimPlugin
+    {
+      pname = "typst-preview.nvim";
+      version = "0.3.3";
+      src = pkgs.fetchFromGitHub {
+        owner = "chomosuke";
+        repo = "typst-preview.nvim";
+        rev = "0354cc1a7a5174a2e69cdc21c4db9a3ee18bb20a";
+        sha256 = "sha256-n0TfcXJLlRXdS6S9dwYHN688IipVSDLVXEqyYs+ROG8=";
+      };
+    })
   ];
 
   keymaps = [
