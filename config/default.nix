@@ -9,12 +9,12 @@ in {
     signcolumn = "yes";
     shiftwidth = 2;
     number = true;
-    nowrap = true;
+    wrap = false;
   };
 
   globals = {
-    mapleader = " ";
     maplocalleader = " ";
+    mapleader = " ";
   };
 
   performance.combinePlugins = {
