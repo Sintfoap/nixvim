@@ -6,9 +6,10 @@
   rustfmt = "${pkgs.rustfmt}/bin/rustfmt";
 in {
   opts = {
-    number = true;
-    shiftwidth = 2;
     signcolumn = "yes";
+    shiftwidth = 2;
+    number = true;
+    nowrap = true;
   };
 
   globals = {
