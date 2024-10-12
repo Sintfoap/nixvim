@@ -79,6 +79,7 @@ in {
       };
       servers = {
         pyright.enable = true;
+	dartls.enable = true;
         nil-ls.enable = true;
         jsonls.enable = true;
         html.enable = true;
