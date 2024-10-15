@@ -4,6 +4,7 @@
   alejandra = "${pkgs.alejandra}/bin/alejandra";
   isort = "${pkgs.isort}/bin/isort";
   rustfmt = "${pkgs.rustfmt}/bin/rustfmt";
+  typstfmt = "${pkgs.typstfmt}/bin/typstfmt";
 in {
   opts = {
     signcolumn = "yes";
@@ -20,7 +21,9 @@ in {
   performance.combinePlugins = {
     enable = true;
     standalonePlugins = [
-      "oil.nvim" "lualine.nvim" "leap.nvim"
+      "oil.nvim"
+      "lualine.nvim"
+      "leap.nvim"
     ];
   };
 
@@ -40,6 +43,7 @@ in {
         nix = ["alejandra"];
         python = ["isort" "ruff_format"];
         rust = ["rustfmt"];
+        typst = ["typstfmt"];
         "*" = ["trim_whitespace"];
       };
       formatters = {
@@ -51,8 +55,10 @@ in {
         alejandra.command = alejandra;
         isort.command = isort;
         rustfmt.command = rustfmt;
+        typstfmt.commad = typstfmt;
       };
     };
+
     vimtex = {
       enable = true;
       texlivePackage = pkgs.texlive.combined.scheme-full;
@@ -79,7 +85,7 @@ in {
       };
       servers = {
         pyright.enable = true;
-	dartls.enable = true;
+        dartls.enable = true;
         nil-ls.enable = true;
         jsonls.enable = true;
         html.enable = true;
@@ -241,16 +247,16 @@ in {
   extraPlugins = with pkgs.vimPlugins; [
     vim-visual-multi
     (pkgs.vimUtils.buildVimPlugin
-    {
-      pname = "typst-preview.nvim";
-      version = "0.3.3";
-      src = pkgs.fetchFromGitHub {
-        owner = "chomosuke";
-        repo = "typst-preview.nvim";
-        rev = "0354cc1a7a5174a2e69cdc21c4db9a3ee18bb20a";
-        sha256 = "sha256-n0TfcXJLlRXdS6S9dwYHN688IipVSDLVXEqyYs+ROG8=";
-      };
-    })
+      {
+        pname = "typst-preview.nvim";
+        version = "0.3.3";
+        src = pkgs.fetchFromGitHub {
+          owner = "chomosuke";
+          repo = "typst-preview.nvim";
+          rev = "0354cc1a7a5174a2e69cdc21c4db9a3ee18bb20a";
+          sha256 = "sha256-n0TfcXJLlRXdS6S9dwYHN688IipVSDLVXEqyYs+ROG8=";
+        };
+      })
   ];
 
   keymaps = [
