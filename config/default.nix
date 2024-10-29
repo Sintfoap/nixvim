@@ -86,7 +86,7 @@ in {
       servers = {
         pyright.enable = true;
         dartls.enable = true;
-        nil-ls.enable = true;
+        nixd.enable = true;
         jsonls.enable = true;
         html.enable = true;
         lua-ls.enable = true;
@@ -239,10 +239,6 @@ in {
       };
     };
   };
-
-  extraConfigLua = ''
-    require 'typst-preview'.update()
-  '';
 
   extraPlugins = with pkgs.vimPlugins; [
     vim-visual-multi
