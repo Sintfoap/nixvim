@@ -5,7 +5,7 @@
   isort = "${pkgs.isort}/bin/isort";
   rustfmt = "${pkgs.rustfmt}/bin/rustfmt";
   typstfmt = "${pkgs.typstfmt}/bin/typstfmt";
-  clang-format = "${pkgs.clang-format}/bin/clang-format";
+  clang-format = "${pkgs.clang-tools}/bin/clang-format";
 in {
   opts = {
     signcolumn = "yes";
@@ -58,6 +58,7 @@ in {
         isort.command = isort;
         rustfmt.command = rustfmt;
         typstfmt.commad = typstfmt;
+	clang-format.command = clang-format;
       };
     };
 
