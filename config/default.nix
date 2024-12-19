@@ -5,7 +5,6 @@
   isort = "${pkgs.isort}/bin/isort";
   rustfmt = "${pkgs.rustfmt}/bin/rustfmt";
   typstfmt = "${pkgs.typstfmt}/bin/typstfmt";
-  clang-format = "${pkgs.clang-tools}/bin/clang-format";
 in {
   opts = {
     signcolumn = "yes";
@@ -45,7 +44,6 @@ in {
         python = ["isort" "ruff_format"];
         rust = ["rustfmt"];
         typst = ["typstfmt"];
-	cpp = ["clang-format"];
         "*" = ["trim_whitespace"];
       };
       formatters = {
@@ -58,7 +56,6 @@ in {
         isort.command = isort;
         rustfmt.command = rustfmt;
         typstfmt.commad = typstfmt;
-	clang-format.command = clang-format;
       };
     };
 
@@ -101,7 +98,7 @@ in {
         ts-ls.enable = true;
         ltex.enable = true;
         typst_lsp.enable = true;
-	ccls.enable = true;
+	clangd.enable = true;
       };
     };
 
