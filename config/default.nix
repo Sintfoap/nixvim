@@ -4,7 +4,7 @@
   alejandra = "${pkgs.alejandra}/bin/alejandra";
   isort = "${pkgs.isort}/bin/isort";
   rustfmt = "${pkgs.rustfmt}/bin/rustfmt";
-  typstfmt = "${pkgs.typstfmt}/bin/typstfmt";
+  typstyle = "${pkgs.typstyle}/bin/typstyle";
 in {
   opts = {
     signcolumn = "yes";
@@ -43,7 +43,7 @@ in {
         nix = ["alejandra"];
         python = ["isort" "ruff_format"];
         rust = ["rustfmt"];
-        typst = ["typstfmt"];
+        typst = ["typstyle"];
         "*" = ["trim_whitespace"];
       };
       formatters = {
@@ -55,7 +55,7 @@ in {
         alejandra.command = alejandra;
         isort.command = isort;
         rustfmt.command = rustfmt;
-        typstfmt.commad = typstfmt;
+        typstlye.commad = typstyle;
       };
     };
 
@@ -98,7 +98,7 @@ in {
         ts-ls.enable = true;
         ltex.enable = true;
         typst_lsp.enable = true;
-	clangd.enable = true;
+        clangd.enable = true;
       };
     };
 
