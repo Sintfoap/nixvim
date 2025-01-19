@@ -5,6 +5,7 @@
   isort = "${pkgs.isort}/bin/isort";
   rustfmt = "${pkgs.rustfmt}/bin/rustfmt";
   typstyle = "${pkgs.typstyle}/bin/typstyle";
+  google-java-format = "${pkgs.google-java-format}/bin/google-java-format";
 in {
   opts = {
     signcolumn = "yes";
@@ -44,6 +45,7 @@ in {
         python = ["isort" "ruff_format"];
         rust = ["rustfmt"];
         typst = ["typstyle"];
+	java = ["google-java-format"];
         "*" = ["trim_whitespace"];
       };
       formatters = {
@@ -56,6 +58,7 @@ in {
         isort.command = isort;
         rustfmt.command = rustfmt;
         typstlye.commad = typstyle;
+	google-java-format.command = google-java-format;
       };
     };
 
