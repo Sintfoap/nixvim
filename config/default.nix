@@ -45,7 +45,7 @@ in {
         python = ["isort" "ruff_format"];
         rust = ["rustfmt"];
         typst = ["typstyle"];
-	java = ["google-java-format"];
+        java = ["google-java-format"];
         "*" = ["trim_whitespace"];
       };
       formatters = {
@@ -58,7 +58,7 @@ in {
         isort.command = isort;
         rustfmt.command = rustfmt;
         typstlye.commad = typstyle;
-	google-java-format.command = google-java-format;
+        google-java-format.command = google-java-format;
       };
     };
 
@@ -244,6 +244,14 @@ in {
       };
     };
   };
+
+  extraConfigLua = ''
+    require("typst-preview").setup()
+  '';
+
+  extraPlugins = with pkgs.vimPlugins; [
+    typst-preview-nvim
+  ];
 
   keymaps = [
     {
