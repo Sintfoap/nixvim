@@ -245,21 +245,6 @@ in {
     };
   };
 
-  extraPlugins = with pkgs.vimPlugins; [
-    vim-visual-multi
-    (pkgs.vimUtils.buildVimPlugin
-      {
-        pname = "typst-preview.nvim";
-        version = "0.3.3";
-        src = pkgs.fetchFromGitHub {
-          owner = "chomosuke";
-          repo = "typst-preview.nvim";
-          rev = "0354cc1a7a5174a2e69cdc21c4db9a3ee18bb20a";
-          sha256 = "sha256-n0TfcXJLlRXdS6S9dwYHN688IipVSDLVXEqyYs+ROG8=";
-        };
-      })
-  ];
-
   keymaps = [
     {
       mode = "n";
