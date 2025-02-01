@@ -101,8 +101,12 @@ in {
         tsserver.enable = true;
         ts-ls.enable = true;
         ltex.enable = true;
-        typst_lsp.enable = true;
         clangd.enable = true;
+        tinymist = {
+          enable = true;
+          extraOptions.offset_encoding = "utf-8";
+          settings.exportPdf = "onSave";
+        };
       };
     };
 
