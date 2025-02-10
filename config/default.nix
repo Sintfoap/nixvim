@@ -189,21 +189,6 @@ in {
       ];
     };
 
-    floaterm = {
-      enable = true;
-      autoclose = 0;
-      keymaps = {
-        hide = "<leader>th";
-        kill = "<leader>td";
-        first = "<leader>ti";
-        last = "<leader>ta";
-        new = "<leader>to";
-        next = "<leader>tk";
-        prev = "<leader>tj";
-        show = "<leader>tg";
-      };
-    };
-
     gitsigns.enable = true;
 
     neogit.enable = true;
@@ -252,6 +237,7 @@ in {
   extraPlugins = with pkgs.vimPlugins; [
     typst-preview-nvim
     linediff-vim
+    tagbar
   ];
 
   keymaps = [
@@ -264,6 +250,11 @@ in {
       mode = "n";
       key = "<leader>-";
       action = "<cmd>Oil<cr>";
+    }
+    {
+      mode = "n";
+      key = "<leader>\\";
+      action = "<cmd>Tagbar<cr>";
     }
   ];
 }
