@@ -251,6 +251,7 @@ in {
 
   extraPlugins = with pkgs.vimPlugins; [
     typst-preview-nvim
+    linediff-vim
   ];
 
   keymaps = [
