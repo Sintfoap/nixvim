@@ -212,7 +212,7 @@ in {
 
     nvim-autopairs.enable = true;
 
-    surround.enable = true;
+    nvim-surround.enable = true;
 
     comment.enable = true;
 
