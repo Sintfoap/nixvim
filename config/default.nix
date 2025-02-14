@@ -238,6 +238,15 @@ in {
     typst-preview-nvim
     linediff-vim
     tagbar
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "vim-easy-replace";
+      src = pkgs.fetchFromGitHub {
+        owner = "kqito";
+        repo = "vim-easy-replace";
+        rev = "4f86aff2d0a4a930f892d741c3fd7871e269852b";
+        sha256 = "sha256-Vw9/PFb45O5FRohGqjMy77ONdRPgJ2GI2trXjkVqfdg=";
+      };
+    })
   ];
 
   keymaps = [
