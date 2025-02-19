@@ -101,6 +101,7 @@ in {
         tsserver.enable = true;
         ts-ls.enable = true;
         ltex.enable = true;
+	svelte.enable = true;
         clangd.enable = true;
         tinymist = {
           enable = true;
