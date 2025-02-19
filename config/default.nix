@@ -101,7 +101,7 @@ in {
         tsserver.enable = true;
         ts-ls.enable = true;
         ltex.enable = true;
-	svelte.enable = true;
+        svelte.enable = true;
         clangd.enable = true;
         tinymist = {
           enable = true;
@@ -190,6 +190,36 @@ in {
       ];
     };
 
+    notify = {
+      enable = true;
+    };
+
+    noice = {
+      enable = true;
+      settings = {
+        notify = {
+          enabled = false;
+          view = "notify";
+        };
+        messages = {
+          enabled = true;
+          view = "mini";
+        };
+        lsp = {
+          message = {
+            enabled = false;
+          };
+          progress = {
+            enabled = false;
+            view = "mini";
+          };
+        };
+        popupmenu = {
+          enabled = true;
+          backend = "nui";
+        };
+      };
+    };
     gitsigns.enable = true;
 
     neogit.enable = true;
@@ -265,6 +295,16 @@ in {
       mode = "n";
       key = "<leader>\\";
       action = "<cmd>Tagbar<cr>";
+    }
+    {
+      mode = "n";
+      key = "<leader>un";
+      action = ''
+        <cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>
+      '';
+      options = {
+        desc = "Dismiss All Notifications";
+      };
     }
   ];
 }
