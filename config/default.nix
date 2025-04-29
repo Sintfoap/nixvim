@@ -104,7 +104,6 @@ in {
         svelte.enable = true;
         clangd.enable = true;
         clojure_lsp.enable = true;
-        omnisharp.enable = true;
         tinymist = {
           enable = true;
           extraOptions.offset_encoding = "utf-8";
@@ -278,6 +277,15 @@ in {
         repo = "vim-easy-replace";
         rev = "4f86aff2d0a4a930f892d741c3fd7871e269852b";
         sha256 = "sha256-Vw9/PFb45O5FRohGqjMy77ONdRPgJ2GI2trXjkVqfdg=";
+      };
+    })
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "omnisharp-vim";
+      src = pkgs.fetchFromGitHub {
+        owner = "OmniSharp";
+        repo = "omnisharp-vim";
+        rev = "cdbf65bc4385d7026428d2f392b40a317725cc9c";
+        sha256 = "sha256-mM1ePRbjp0bqQMm2KBLZ4zdlKlUF14Pod6jM82Z28L8=";
       };
     })
   ];
