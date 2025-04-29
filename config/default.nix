@@ -264,6 +264,7 @@ in {
 
   extraConfigLua = ''
     require("typst-preview").setup()
+    require("OmniSharpInstall").setup()
   '';
 
   extraPlugins = with pkgs.vimPlugins; [
