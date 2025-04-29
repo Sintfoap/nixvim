@@ -103,7 +103,8 @@ in {
         ltex.enable = true;
         svelte.enable = true;
         clangd.enable = true;
-	clojure_lsp.enable = true;
+        clojure_lsp.enable = true;
+        omnisharp.enable = true;
         tinymist = {
           enable = true;
           extraOptions.offset_encoding = "utf-8";
